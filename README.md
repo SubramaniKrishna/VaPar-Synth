@@ -20,6 +20,18 @@ The repository contains code to do the following (One directory for each)-
 2. [Parametric](./Parametric/README.md): Obtaining the parametric representation of the audio.   
 	1. The parametric representation used utilizes the **True Amplitude Envelope Estimation (TAE)** algorithm on top of the Harmonic plus Residual model.   
 	2. We have implemented the code for **TAE** using the algorithm described <a href="https://hal.archives-ouvertes.fr/hal-01161334" target="_blank">here</a> . To the best of our knowledge, there is no open-source implementation (in Python) for this algorithm, so we make our code available to the community to use it and build upon/improve it. The algorithm is present in the func\_envs.py file under the [extra\_dependencies](./extra_dependencies/README.md) directory. We have also demonstrated the algorithms usage in a Jupyter Notebook in the same directory. 
-3. [Network](./Network/README.md):
+3. [Network](./Network/README.md): PyTorch code for the Conditional VAE/AE. Also contains code to evaluate the models.
+
+<!-- ---
+If you use the code/paper, please cite the work as:  
+~~~
+@unpublished{subramani_vapar,
+  title={VaPar Synth - A Variational Parametric Model for Audio Synthesis},
+  author={Subramani, Krishna and Rao, Preeti and D'Hooge, Alexandre},
+  note = "Submitted to ICASSP 2020"
+  journal={ICASSP 2020, Under Review},
+  eprint = {https://www.ee.iitb.ac.in/student/~krishnasubramani/data/icassp_paper.pdf}
+} 
+~~~ -->
 	
 

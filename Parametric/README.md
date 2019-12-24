@@ -26,5 +26,10 @@ To test the working of the above parametric modeling, we have also written code 
 	2. Performing a Sinusoidal Model reconstruction from the above (Magnitude,Harmonic) pairs.
 2. <u>pp_test\_fft.py</u> - This 'inverts' the magnitude spectrogram using the griffin lim algorithm as implemented in librosa.
 
-Both the above files work on the pickle dumps obtained in the processing step, and output the audio for all the files in the dump. For proper inversion, ensure that the parameters values are consistent during obtaining the parameters and the inversion.
+Both the above files work on the pickle dumps obtained in the processing step, and output the audio for all the files in the dump. For proper inversion, ensure that the parameters values are consistent during obtaining the parameters and the inversion.   
+
+To choose the number of frames to train the model on, an additional Jupyter Notebook - Preprocess-Stats.ipynb displays the number of frames for each note in the chosen octave. 
+
+
+
 
