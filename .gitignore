@@ -1,0 +1,15 @@
+.ipynb_checkpoints
+__pycache__
+
+*.pyc
+*.pt
+*.pth
+*.png
+*.wav
+*.mp3
+*.json
+*.txt
+*.swp
+*.gif
+*.so
+*.csv
