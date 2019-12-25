@@ -82,7 +82,7 @@ for beta in beta_list:
 		num_cond = 1
 
 		now = datetime.now()
-		dir_network = dir_pth_save + 'synthmanifold(' + str(now) + ')_' + str([dim_cc, flag_cond, layer_dims_enc, latent_dims, layer_dims_dec, num_cond]) + '_niters_' + str(num_epochs) + '_lr_' + str(learning_rate) + '_beta_' + str(beta) + '_net3.pth'
+		dir_network = dir_pth_save + 'synthmanifold(' + str(now) + ')_' + str([dim_cc, flag_cond, layer_dims_enc, latent_dims, layer_dims_dec, num_cond]) + '_niters_' + str(num_epochs) + '_lr_' + str(learning_rate) + '_beta_' + str(beta) + str(pitches) +  '_net3.pth'
 
 		# Define the model by instantiating an object of the class
 		cVAE = cVAE_synth(flag_cond = flag_cond, layer_dims_enc = layer_dims_enc, layer_dims_dec = layer_dims_dec, latent_dims = latent_dims, num_cond = num_cond, device = device).to(device)

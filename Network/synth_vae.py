@@ -35,7 +35,7 @@ batch_size = 512
 # Here, provide the path to the pickle dump obtained as output of the parametric modeling
 datafile = '../Parametric/Train_octave_4_Parametric.txt'
 # Here, you can select the MIDI pitches you want to train the network on (Should be according to the octave you choose, octave 4 - MIDI 60-71)
-pitches = [60,71]
+pitches = [60,61,62,63,64,65,66,67,68,69,70,71]
 
 # This loads the data from the pickle dump into a dataloader. You can choose the total number of frames to train as well here.
 dataset = SMSynthDataset(filename = datafile, num_frames = 1000, pitches = pitches)
@@ -64,7 +64,7 @@ beta_list = [0.1]
 latent_dims_list = [32]
 
 # Directory to store the PyTorch .pth file (Which contains the network weights)
-dir_pth_save = './VAEparams/'
+dir_pth_save = './CVAEparams/'
 try: 
     os.makedirs(dir_pth_save, exist_ok = True) 
     print("Directory '%s' created successfully" %dir_pth_save) 
@@ -83,7 +83,7 @@ for beta in beta_list:
 		num_cond = 1
 
 		now = datetime.now()
-		dir_network = dir_pth_save + 'synthmanifold(' + str(now) + ')_' + str([dim_cc, flag_cond, layer_dims_enc, latent_dims, layer_dims_dec, num_cond]) + '_niters_' + str(num_epochs) + '_lr_' + str(learning_rate) + '_beta_' + str(beta) + '_net.pth'
+		dir_network = dir_pth_save + 'synthmanifold(' + str(now) + ')_' + str([dim_cc, flag_cond, layer_dims_enc, latent_dims, layer_dims_dec, num_cond]) + '_niters_' + str(num_epochs) + '_lr_' + str(learning_rate) + '_beta_' + str(beta) + str(pitches) + '_net.pth'
 
 		# Define the model by instantiating an object of the class
 		cVAE = cVAE_synth(flag_cond = flag_cond, layer_dims_enc = layer_dims_enc, layer_dims_dec = layer_dims_dec, latent_dims = latent_dims, num_cond = num_cond, device = device).to(device)

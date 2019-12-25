@@ -79,7 +79,7 @@ for ld in latent_dims_list:
 	num_cond = 1
 
 	now = datetime.now()
-	dir_network = dir_pth_save + 'synthmanifold(' + str(now) + ')_' + str([dim_cc, flag_cond, layer_dims_enc, latent_dims, layer_dims_dec, num_cond]) + '_niters_' + str(num_epochs) + '_lr_' + str(learning_rate) + '_bsize_' + str(batch_size) + 'net.pth'
+	dir_network = dir_pth_save + 'synthmanifold(' + str(now) + ')_' + str([dim_cc, flag_cond, layer_dims_enc, latent_dims, layer_dims_dec, num_cond]) + '_niters_' + str(num_epochs) + '_lr_' + str(learning_rate) + '_bsize_' + str(batch_size) +  str(pitches) + 'net.pth'
 
 	# Define the model by instantiating an object of the class
 	AE = AE_synth(device = device, layer_dims_enc = layer_dims_enc, layer_dims_dec = layer_dims_dec, latent_dims = latent_dims).to(device)
