@@ -1,4 +1,4 @@
-# VaPar Synth - A Variational Parametric Model for Audio Synthesis
+# VaPar Synth - A Variational Parametric Model for Audio Synthesis [![DOI](https://zenodo.org/badge/229703012.svg)](https://zenodo.org/badge/latestdoi/229703012)
 
 ### Krishna Subramani<sup>1</sup>, Preeti Rao<sup>1</sup>, Alexandre D'Hooge<sup>2</sup>
 ### <sup>1</sup>IIT Bombay, <sup>2</sup>ENS Paris-Saclay
