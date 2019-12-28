@@ -21,6 +21,7 @@ from stft import stftAnal
 import morphing as m
 import func_envs as fe
 from essentia.standard import MonoLoader, StartStopSilence, FrameGenerator
+import librosa
 
 
 def spec_calc(audio_inp, params):
@@ -147,6 +148,15 @@ for it,f in enumerate(list_files_to_process):
 
 	# Compute the magnitude specgram
 	op, ph = spec_calc(audio_inp = ainp, params = params)
+
+	# If you want to use the magnitude CQT as the input representation insted of the FFT, replace the above line by uncommenting the following lines
+	"""
+	# This assumes 8 octaves at 36 bins per octave, can be changed (also change this accordingly during the inversion stage!)
+	C = librosa.cqt(y=ainp, sr=params['fs'],hop_length = params['H'], bins_per_octave=36, n_bins = 8*36)
+	op = np.abs(C)
+	ph = np.angle(C)
+	"""
+
 
 	# Store cc'c + other relevant parameters in dict
 	results[name] = {}

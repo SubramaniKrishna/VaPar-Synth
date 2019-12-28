@@ -185,6 +185,16 @@ for k in data.keys():
 	a_recon_stft_cVAE = librosa.core.griffinlim(S = stft_recon_cVAE ,hop_length = params['H'])
 	a_recon_stft_AE = librosa.core.griffinlim(S = stft_recon_AE,hop_length = params['H'])
 
+	# If you are using the CQT representation, uncomment the following lines to invert the audio
+	# Take care to use the same parameters while inversion that you used to obtain the CQT
+	"""
+	stft_recon_cVAE = np.log10(stft_recon_cVAE)
+	stft_recon_AE = np.log10(stft_recon_AE)
+	a_og = librosa.griffinlim_cqt(stft_in.T, sr=params['fs'],hop_length = params['H'], bins_per_octave=36)
+	a_recon_stft_cVAE = librosa.griffinlim_cqt(stft_recon_cVAE, sr=params['fs'],hop_length = params['H'], bins_per_octave=36)
+	a_recon_stft_AE = librosa.griffinlim_cqt(stft_recon_AE, sr=params['fs'],hop_length = params['H'], bins_per_octave=36)
+	"""
+
 
 	# STFT plots
 	# f_og, t_og, Zxx_og = stft(a_og, params['fs'], nperseg=params['N'])

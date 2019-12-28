@@ -78,6 +78,11 @@ for k in data.keys():
 	# Using griffin lim to invert
 	# arecon = reconstruct_signal_griffin_lim(magnitude_spectrogram = 10**(stft_inp[:,:params['N']//2 + 1]), fft_size = params['N'], hopsamp = params['H'], iterations = 100)
 	arecon = librosa.core.griffinlim(S = 10**(stft_inp.T),hop_length = params['H'])
+
+	# If you are using the magnitude CQT instead of the magnitude FFT, uncomment the following line (instead of the above) to invert the CQT
+	# Take care to use the same set of parameters for inversion as you used when obtaining the CQT
+	# arecon = librosa.griffinlim_cqt(stft_inp, sr=params['fs'],hop_length = params['H'], bins_per_octave=36)
+
 	# arecon = stftSynth(20*stft_inp, np.pi*np.random.rand(phase_inp.shape[0],phase_inp.shape[1]), params['W'] , params['H'] )
 
 	write(filename = dir_dump + str(k) + '_recon_fft.wav', rate = params['fs'], data = arecon/np.max(abs(arecon)).astype('float32'))
